@@ -1,0 +1,24 @@
+CREATE TABLE companies (
+  id BIGINT PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(15) NOT NULL,
+  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+INSERT INTO companies (id, name) VALUES (1, 'company-1');
+INSERT INTO companies (id, name) VALUES (2, 'company-2');
+
+CREATE TABLE users (
+  id BIGINT PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(15) NOT NULL,
+  email VARCHAR(255), /* UNIQUE にしてもいいかも */
+  age SMALLINT NOT NULL,
+  birthday DATE,
+  member_number VARCHAR(10),
+  activated_at DATETIME,
+  company_id BIGINT,
+  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+INSERT INTO users (id, name, age, company_id) VALUES (1, 'yamada taro', 20, 2);
